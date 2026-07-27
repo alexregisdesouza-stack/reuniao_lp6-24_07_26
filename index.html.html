@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reunião · Le Petit Macarons Kplatz · 24/07/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rose:#E8A0A8;
+    --rose-deep:#C46B76;
+    --plum:#3A2530;
+    --plum-soft:#5A3B47;
+    --cream:#FBF4EF;
+    --cream-2:#F5E8E0;
+    --pistache:#A8C09A;
+    --pistache-deep:#7C9A6C;
+    --gold:#D9A566;
+    --ink:#2C1B22;
+    --line:rgba(58,37,48,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+
+  .hero{
+    position:relative;
+    padding:60px 24px 52px;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(232,160,168,.35), transparent 55%),
+      radial-gradient(100% 80% at 0% 100%, rgba(168,192,154,.28), transparent 50%),
+      var(--plum);
+    color:var(--cream);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:22px 22px;pointer-events:none;
+  }
+  .hero-inner{max-width:980px;margin:0 auto;position:relative;z-index:2}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:600;color:var(--rose);margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--rose)}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:900;
+    font-size:clamp(2.4rem,5.6vw,4.1rem);line-height:1.02;
+    letter-spacing:-.02em;
+  }
+  .hero h1 em{font-style:italic;color:var(--rose);font-weight:400}
+  .hero p.lead{
+    margin-top:20px;max-width:600px;font-size:1.06rem;
+    color:rgba(251,244,239,.82);font-weight:300;
+  }
+  .meta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(251,244,239,.1);border:1px solid rgba(251,244,239,.2);
+    padding:9px 16px;border-radius:100px;font-size:.86rem;font-weight:500;
+    backdrop-filter:blur(4px);
+  }
+  .chip b{color:var(--rose)}
+
+  section{padding:54px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:32px}
+  .sec-num{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;
+    color:var(--rose-deep);flex-shrink:0;
+    border:1.5px solid var(--rose);border-radius:50%;
+    width:46px;height:46px;display:grid;place-items:center;
+  }
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:clamp(1.6rem,3.2vw,2.2rem);color:var(--plum);
+    letter-spacing:-.015em;line-height:1.1;
+  }
+  .sec-head p{font-size:.95rem;color:var(--plum-soft);margin-top:4px}
+
+  .context{
+    display:grid;grid-template-columns:1fr;gap:0;
+    border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    background:var(--cream-2);margin-top:-26px;position:relative;z-index:3;
+    box-shadow:0 20px 50px -30px rgba(58,37,48,.5);
+  }
+  .context-img{height:220px;background-size:cover;background-position:center}
+  .context-body{padding:26px 30px}
+  .context-body h3{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--plum);margin-bottom:10px}
+  .context-body p{color:var(--plum-soft);font-size:.96rem}
+
+  .resp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .resp{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:20px 22px;display:flex;gap:16px;align-items:flex-start;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .resp:hover{transform:translateY(-3px);box-shadow:0 20px 36px -28px rgba(58,37,48,.45)}
+  .resp .rn{
+    font-family:'Fraunces',serif;font-weight:900;font-size:1.4rem;
+    color:var(--rose);flex-shrink:0;line-height:1;min-width:36px;
+  }
+  .resp .rc h4{font-size:1.02rem;color:var(--plum);font-weight:600;margin-bottom:4px}
+  .resp .rc p{font-size:.88rem;color:var(--plum-soft)}
+  .tag{
+    display:inline-block;margin-top:8px;font-size:.68rem;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:100px;
+  }
+  .t-week{background:rgba(168,192,154,.28);color:var(--pistache-deep)}
+  .t-sys{background:var(--cream-2);color:var(--rose-deep)}
+  .t-people{background:rgba(217,165,102,.22);color:#a9722d}
+  .t-brand{background:rgba(232,160,168,.28);color:var(--rose-deep)}
+  .resp.wide{grid-column:1/-1}
+
+  .ben-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px}
+  .ben{
+    background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;
+    position:relative;overflow:hidden;
+  }
+  .ben::before{
+    content:"";position:absolute;top:0;left:0;width:6px;height:100%;background:var(--rose);
+  }
+  .ben.b2::before{background:var(--pistache)}
+  .ben .emo{font-size:1.8rem;display:block;margin-bottom:12px}
+  .ben h5{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--plum);margin-bottom:6px}
+  .ben .val{
+    font-family:'Fraunces',serif;font-weight:900;font-size:2rem;color:var(--rose-deep);
+    line-height:1;margin:6px 0 12px;
+  }
+  .ben p{font-size:.9rem;color:var(--plum-soft)}
+  .ben .rule{
+    margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);
+    font-size:.84rem;color:var(--plum-soft);
+  }
+  .ben .rule b{color:var(--plum)}
+
+  .decision{
+    background:var(--plum);color:var(--cream);border-radius:22px;padding:34px 34px;
+    display:flex;gap:26px;align-items:center;flex-wrap:wrap;
+    box-shadow:0 24px 50px -30px rgba(58,37,48,.7);
+  }
+  .decision .big{
+    font-family:'Fraunces',serif;font-weight:900;font-size:2.6rem;color:var(--rose);
+    line-height:1;flex-shrink:0;
+  }
+  .decision .dtxt h4{font-family:'Fraunces',serif;font-size:1.35rem;margin-bottom:8px}
+  .decision .dtxt p{color:rgba(251,244,239,.8);font-size:.96rem;max-width:520px}
+  .decision .dtxt .cond{
+    display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+    background:rgba(168,192,154,.25);border:1px solid rgba(168,192,154,.4);
+    color:#cfe0c3;padding:8px 16px;border-radius:100px;font-size:.85rem;font-weight:600;
+  }
+
+  footer{background:var(--plum);color:var(--cream);padding:46px 24px;text-align:center;margin-top:44px}
+  footer .quote{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;
+    max-width:620px;margin:0 auto 18px;line-height:1.4;
+  }
+  footer .sig{font-size:.82rem;color:rgba(251,244,239,.6);letter-spacing:.1em}
+
+  @media(max-width:720px){
+    .resp-grid,.ben-cards{grid-template-columns:1fr}
+    .resp.wide{grid-column:auto}
+    .sec-head{flex-direction:column;gap:12px}
+    .decision{flex-direction:column;text-align:center}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Ata de Reunião · Mentoria Food Service</span>
+    <h1>Le Petit Macarons<br><em>Kplatz</em></h1>
+    <p class="lead">Definição das responsabilidades do gerente e do controle de benefícios dos colaboradores da unidade.</p>
+    <div class="meta-row">
+      <span class="chip">📅 <b>Data:</b> 24 de julho de 2026</span>
+      <span class="chip">🎯 <b>Tema:</b> Responsabilidades do gerente</span>
+      <span class="chip">🎁 <b>Tema:</b> Benefícios</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="context">
+    <div class="context-img" style="background-image:url('https://images.unsplash.com/photo-1558326567-98ae2405596b?w=1200&q=80')"></div>
+    <div class="context-body">
+      <h3>Resumo da reunião</h3>
+      <p>Nesta reunião foram formalizadas as 15 responsabilidades sob gestão do gerente da unidade Kplatz — abrangendo operação, sistemas, gestão de pessoas e presença digital da marca. Também foram definidos os benefícios dos colaboradores e a regra de distribuição proporcional, além de uma decisão específica sobre a ajuda de custo do Edson vinculada a meta de prospecção.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<section id="responsabilidades">
+  <div class="sec-head">
+    <span class="sec-num">01</span>
+    <div>
+      <h2>Responsabilidades do gerente</h2>
+      <p>15 frentes formalizadas sob gestão da unidade.</p>
+    </div>
+  </div>
+
+  <div class="resp-grid">
+    <div class="resp">
+      <span class="rn">1</span>
+      <div class="rc">
+        <h4>Levantamento de inventário</h4>
+        <p>Contagem de estoque da loja semanalmente.</p>
+        <span class="tag t-week">Semanal - todos os domingos</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">2</span>
+      <div class="rc">
+        <h4>Controle de benefícios dos colaboradores</h4>
+        <p>Gestão do vale-alimentação e da ajuda de custo, com distribuição proporcional à carga horária de cada funcionário, dentro do mês.</p>
+        <span class="tag t-people">Pessoas</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">3</span>
+      <div class="rc">
+        <h4>Distribuição da taxa de serviço</h4>
+        <p>Rateio correto da taxa, incluindo metas e supermetas.</p>
+        <span class="tag t-people">Pessoas</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">4</span>
+      <div class="rc">
+        <h4>Entrada de notas fiscais</h4>
+        <p>Lançamento das NFs no sistema AlterData.</p>
+        <span class="tag t-sys">Sistema</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">5</span>
+      <div class="rc">
+        <h4>Folha de pagamento</h4>
+        <p>Elaboração dos eventos da folha para envio à contabilidade (calcular horas extras, horas faltas, horas noturnas, feriados trabalhados, faltas e atestados médicos).</p>
+        <span class="tag t-sys">Sistema</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">6</span>
+      <div class="rc">
+        <h4>Avaliações Google e iFood</h4>
+        <p>Respostas às avaliações para melhorar a reputação digital, diariamente.</p>
+        <span class="tag t-brand">Marca</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">7</span>
+      <div class="rc">
+        <h4>Novas parcerias</h4>
+        <p>Prospecção e desenvolvimento de parcerias para a unidade, meta de prospeção externa de 23 visitas mensais.</p>
+        <span class="tag t-brand">Marca</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">8</span>
+      <div class="rc">
+        <h4>Gestão das redes sociais</h4>
+        <p>Postagens diárias no instagran com legendas ao longo do mês, usando material disponível na Central do Franqueado Le Petit.</p>
+        <span class="tag t-brand">Marca</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">9</span>
+      <div class="rc">
+        <h4>Requisição de compras</h4>
+        <p>Fazer a requisição de todos os Insumos que são comprados da Franqueadora, até domingo as 18h. Demais produtos de compra, material de limpeza, bebidas e descartáveis, o Gerente deve comprar diretamente dos fornecedores.</p>
+        <span class="tag t-sys">Suprimentos</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">10</span>
+      <div class="rc">
+        <h4>Formação de equipe</h4>
+        <p>Novas admissões e composição do time, fica sempre a critério do gerente, sempre informando com antecedência a abertura do procedimento.</p>
+        <span class="tag t-people">Pessoas</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">11</span>
+      <div class="rc">
+        <h4>Rescisões</h4>
+        <p>Condução dos processos de desligamento, sempre informando com antecedência o procedimento para aprovação da diretoria e cumprimento do aviso prévio.</p>
+        <span class="tag t-people">Pessoas</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">12</span>
+      <div class="rc">
+        <h4>Avaliação de desempenho</h4>
+        <p>Avaliação periódica de desempenho dos colaboradores, mensalmente terá uma avaliação direta do gerente utilizando o método 210 e semestralmente uma avaliação completa de desempenho com elaboração de PDI caso necessário..</p>
+        <span class="tag t-people">Pessoas</span>
+      </div>
+    </div>
+
+    <div class="resp">
+      <span class="rn">13</span>
+      <div class="rc">
+        <h4>Supervisão de POPs</h4>
+        <p>Acompanhamento dos Procedimentos Operacionais Padrão, e garante que sejam executados (utilização de uniforme completo, procedimento de contagem diária, atendimento, check list de abertura e fechamento de loja).</p>
+        <span class="tag t-sys">Padrão</span>
+      </div>
+    </div>
+
+    <div class="resp wide">
+      <span class="rn">14</span>
+      <div class="rc">
+        <h4>Autoavaliação do programa de qualidade</h4>
+        <p>Preenchimento da autoavaliação do programa de qualidade da franqueadora no último dia de cada mês, check list específico da central do
+        <span class="tag t-sys">Padrão</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beneficios">
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <div>
+      <h2>Benefícios dos colaboradores</h2>
+      <p>Valores definidos e regra de distribuição.</p>
+    </div>
+  </div>
+
+  <div class="ben-cards">
+    <div class="ben">
+      <span class="emo">🍽️</span>
+      <h5>Vale-alimentação</h5>
+      <div class="val">R$ 250,00</div>
+      <p>Benefício mensal de alimentação por colaborador.</p>
+      <div class="rule">Distribuição <b>proporcional à carga horária trabalhada</b> horas efetivas trabalhadas.</div>
+    </div>
+
+    <div class="ben b2">
+      <span class="emo">🚌</span>
+      <h5>Ajuda de custo · deslocamento</h5>
+      <div class="val">R$ 160,00 por funcionário</div>
+      <p>Auxílio para deslocamento dos colaboradores, opcional para o colaborador mediante renuncia do vale transporte.</p>
+      <div class="rule">Distribuição <b>proporcional à carga horária mensal, subtraindo os dias faltosos</b> trabalhada de cada funcionário.</div>
+    </div>
+  </div>
+</section>
+
+<section id="decisao">
+  <div class="sec-head">
+    <span class="sec-num">03</span>
+    <div>
+      <h2>Decisão da reunião</h2>
+      <p>Item 15 · ajuste condicionado a meta.</p>
+    </div>
+  </div>
+
+  <div class="decision">
+    <div class="big">R$ 260</div>
+    <div class="dtxt">
+      <h4>Aumento da ajuda de custo do Edson</h4>
+      <p>Ajuste da ajuda de custo do Edson de R$ 160,00 para R$ 260,00, condicionado ao cumprimento da meta de prospecção.</p>
+      <span class="cond">✅ Mediante 23 visitas a prospects por mês, seguindo roteiro definido.</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <p class="quote">"Responsabilidade definida e benefício justo: a base de uma operação que performa e retém."</p>
+  <p class="sig">LE PETIT MACARONS · UNIDADE KPLATZ · ATA DE 24/07/2026</p>
+</footer>
+
+</body>
+</html>
